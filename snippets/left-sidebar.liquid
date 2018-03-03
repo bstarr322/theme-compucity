@@ -1,0 +1,55 @@
+<!-- Left Category Sidebar -->
+<div class="left-sidebar">
+  <div id="SideCategoryList" class="CategoryList Block">
+    <div class="section-header">
+      <h2>Categories</h2>
+    </div>
+    <div class="category-content">
+      <ul class="category-list treeview">
+
+        {% assign menu = linklists.categories %}
+
+        {% for link in menu.links %}
+          <li class="{% if link.links != blank %}accordion-tabs{% endif %}">
+            {% if link.links != blank %}
+            <div class="hitarea expandable-hitarea"></div>
+            {% endif %}
+
+            <a href="{{ link.url }}" class="{% if link.active %}selected{% endif %}">{{ link.title }}</a>
+
+            {% if link.links != blank %}
+              <ul class="toggle_content">
+              {% for sub_link in link.links %}
+                <li class="{% if sub_link.links != blank %}accordion-tabs{% endif %}">
+                  {% if sub_link.links != blank %}
+                  <div class="hitarea expandable-hitarea"></div>
+                  {% endif %}
+
+                  <a href="{{ link.url }}" class="{% if sub_link.active %}selected{% endif %}">{{ sub_link.title }}</a>
+
+                  {% if sub_link.links != blank %}
+                    <ul class="toggle_content">
+                    {% for sub_sub_link in sub_link.links %}
+                      <li class="{% if sub_sub_link.links != blank %}accordion-tabs{% endif %}">
+                        {% if sub_sub_link.links != blank %}
+                        <div class="hitarea expandable-hitarea"></div>
+                        {% endif %}
+                        
+                        <a href="{{ link.url }}" class="{% if sub_sub_link.active %}selected{% endif %}">{{ sub_sub_link.title }}</a>
+                      </li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+
+                </li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /Left Category Sidebar -->

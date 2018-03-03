@@ -1,8 +1,7 @@
 <div data-section-id="{{ section.id }}" data-section-type="collections-list-template">
-  <hr>
   <div class="section-header">
-    <h2 class="h1  section-header--left">{{ 'homepage.featured_collections.heading' | t }}</h2>
-    <div class="section-header--right">
+    <h2 class="h1  section-header--left">{{ section.settings.header }}</h2>
+    <div class="section-header--right hide">
       <a href="/collections">{{ 'homepage.featured_collections.more_categories' | t }} &rsaquo;</a>
     </div>
   </div>
@@ -88,6 +87,14 @@
     "name": "Collection list",
     "class": "collection-list-section",
     "max_blocks": 6,
+    "settings": [
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header Text",
+        "default": "Featured Collections"
+      }
+    ],
     "presets": [
       {
         "name": "Collection list",

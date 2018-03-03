@@ -891,7 +891,7 @@ $errorRedBg: lighten($errorRed, 55%);
 $successGreen: #0a942a;
 
 // Width variables
-$siteWidth: 1060px;
+$siteWidth: 1310px;
 $gutter: 30px;
 $gridGutter: 30px;
 $maxWidthBp: $siteWidth + $gutter*2;
@@ -1735,6 +1735,22 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
+
+  .section-header & {
+    background: url('{{"square.png" | asset_url }}');
+    padding: 0 0 0 12px;
+    letter-spacing: 1px;
+    margin: 0 0 18px;
+    position: relative;
+    margin: initial;
+    color: $colorAccent;
+    border-color: $colorAccent;
+    line-height: 42px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+
   {% if settings.type_header_transform %}
   text-transform: uppercase;
   {% endif %}
@@ -2956,7 +2972,7 @@ $shareBorderColor: #ececec;
   color: $headerText;
 
   @include at-query ($min, $large) {
-    padding: $gutter 0;
+
   }
 
   &.site-header--hidden {
@@ -2989,11 +3005,7 @@ $shareBorderColor: #ececec;
 }
 
 .header-logo {
-  margin: $gutter auto;
-
-  @include at-query ($min, $large) {
-    margin: 15px 0;
-  }
+  margin: 0;
 
   @include at-query ($max, $medium) {
     text-align: center;
@@ -3010,7 +3022,7 @@ $shareBorderColor: #ececec;
   }
 
   a, img {
-    display: block;
+    display: inline-block;
   }
 
   img {
@@ -3217,6 +3229,24 @@ $shareBorderColor: #ececec;
     margin: 0;
     display: block;
     position: relative;
+
+    &:hover {
+      > a {
+        background: #3a79ad;
+
+        &:before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-left: 0px solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 47px solid #3a79ad;
+          position: absolute;
+          right: -15px;
+          top: 0px;
+        }
+      }
+    }
   }
 
   & > li {
@@ -5723,3 +5753,193 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
   font-size: em(floor($baseFontSize * 0.93));
 }
 
+
+.FloatRight {
+  float: right;
+}
+
+/*----------  Top Header  ----------*/
+#TopMenu {
+  background: none;
+  border-bottom: 1px solid #eee;
+  height: auto;
+  line-height: normal;
+  padding: 5px 0;
+  font-size: 11px;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+
+  ul {
+    float: right;
+    margin: 0 auto;
+
+    li {
+      float: left;
+      margin-right: 0;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid #eee;
+      line-height: normal;
+
+      a:before {
+        content: "";
+        background: url('{{"header_icons.png" | asset_url }}') 0 0 no-repeat;
+      }
+
+      a.accountlink {
+        &:before {
+          width: 20px;
+          height: 18px;
+          display: block;
+          float: left;
+          background-position: -623px -12px;
+        }
+      }
+
+      a.login {
+        &:before {
+          width: 20px;
+          height: 18px;
+          display: block;
+          float: left;
+          background-position: -740px -10px;
+        }
+      }
+    }
+  }
+
+  .FloatRight,
+  ul {
+    margin-top: 12px;
+  }
+}
+
+.TopHeaderLeft {
+  float: left;
+  padding-left: 30px;
+
+  span {
+    display: block;
+    float: left;
+  }
+  span.paywithamazon {
+    margin-top: 6px;
+
+    &:before {
+      content: "";
+      background: url('{{"header_icons.png" | asset_url }}') 0 0 no-repeat;
+      width: 25px;
+      height: 25px;
+      display: block;
+      float: left;
+      background-position: 0 -9px;
+      margin-right: 7px;
+    }
+  }
+
+  span.BBBLogo {
+    margin-left: 20px;
+    width: 98px;
+    height: 40px;
+    text-indent: -500px;
+    overflow: hidden;
+    background: url('{{"bbbLogo.png" | asset_url }}') 0 0 no-repeat;
+  }
+
+  span.GoogleTrustedStoreLogo {
+    margin-left: 20px;
+    width: 123px;
+    height: 40px;
+    text-indent: -500px;
+    overflow: hidden;
+    background: url('{{"googletrustlogo.png" | asset_url }}') 0 0 no-repeat;
+  }
+}
+
+
+
+/*----------  Left Category Sidebar  ----------*/
+.toggle_content {
+  display: none;
+}
+
+.left-sidebar {
+  ul {
+    margin: initial;
+  }
+  .section-header {
+    margin: initial;
+    h2 {
+      border-left: 5px solid;
+    }
+  }
+
+  .category-list {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    width: auto;
+  }
+}
+
+.treeview {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  width: auto;
+
+  li {
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    margin: initial;
+
+    &.expandable,
+    &.accordion-tabs {
+      a {
+        width: calc(100% - 34px);
+      }
+    }
+
+    a {
+      color: #444;
+      font-size: 12px;
+      text-decoration: none;
+      padding: 8px 10px 8px 10px;
+      display: block;
+
+      &:hover {
+        color: #fff;
+        background: $colorAccent;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .hitarea {
+    background: url('{{"menu-arrow.png" | asset_url }}') no-repeat center -41px;
+    border-left: 1px solid #e5e5e5;
+    background-position: 12px -41px;
+    width: 34px;
+    height: 100%;
+    padding: 5px;
+
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &.collapsable-hitarea {
+      background-position: 12px 14px;
+    }
+  }
+}
+
+#shopify-section-slideshow {
+  -webkit-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.3);
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.3);
+  margin-bottom: 8px;
+
+  .main-content & {
+    display: none;
+  }
+}

@@ -66,11 +66,20 @@
 
   {% section 'header' %}
 
-  <main class="wrapper main-content" role="main">
+  <div class="wrapper">
+    {% section 'slideshow' %}
 
-    {{ content_for_layout }}
-
-  </main>
+    <div class="grid">
+      <div class="grid-item one-fifth">
+        {% include 'left-sidebar' %}
+      </div>
+      <div class="grid-item four-fifths">
+        <main class="main-content" role="main">
+          {{ content_for_layout }}
+        </main>
+      </div>
+    </div>
+  </div>
 
   {% section 'footer' %}
 

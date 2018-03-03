@@ -58,38 +58,40 @@
       </div>
     </div>
 
-    <p>{{ product.title }}</p>
+    <div class="grid-details">
+      <p class="title">{{ product.title }}</p>
 
-    <div class="product-item--price">
-      <span class="h1 medium--left">
-        {% if on_sale %}
-          <span class="visually-hidden">{{ "products.general.sale_price" | t }}</span>
-        {% else %}
-          <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
-        {% endif %}
-        {% include 'price' with product.price %}
-        {% if on_sale and section.settings.product_show_compare_at_price %}
-          <small>
-            <s>
-              <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
-              {% include 'price' with product.compare_at_price %}
-            </s>
-          </small>
-        {% endif %}
-      </span>
-
-      {% if on_sale and section.settings.product_show_saved_amount %}
-        <span class="sale-tag{% unless section.settings.show_compare_at_price %} medium--right{% endunless %}{% if section.settings.product_reviews_enable %} has-reviews{% endif %}">
-          {% assign compare_price = product.compare_at_price %}
-          {% assign product_price = product.price %}
-          {% include 'price-sale' %}
+      <div class="product-item--price">
+        <span class="h1 medium--left">
+          {% if on_sale %}
+            <span class="visually-hidden">{{ "products.general.sale_price" | t }}</span>
+          {% else %}
+            <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
+          {% endif %}
+          {% include 'price' with product.price %}
+          {% if on_sale and section.settings.product_show_compare_at_price %}
+            <small>
+              <s>
+                <span class="visually-hidden">{{ "products.general.regular_price" | t }}</span>
+                {% include 'price' with product.compare_at_price %}
+              </s>
+            </small>
+          {% endif %}
         </span>
+
+        {% if on_sale and section.settings.product_show_saved_amount %}
+          <span class="hide sale-tag{% unless section.settings.show_compare_at_price %} medium--right{% endunless %}{% if section.settings.product_reviews_enable %} has-reviews{% endif %}">
+            {% assign compare_price = product.compare_at_price %}
+            {% assign product_price = product.price %}
+            {% include 'price-sale' %}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if section.settings.product_reviews_enable %}
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
       {% endif %}
     </div>
-
-    {% if section.settings.product_reviews_enable %}
-      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-    {% endif %}
   </a>
 
 </div>

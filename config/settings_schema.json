@@ -192,6 +192,11 @@
             "group": "Sans-serif | Google Web Fonts"
           },
           {
+            "value": "Google_Oswald_400,700_sans",
+            "label": "Oswald",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
             "value": "Google_PT+Sans_400,700_sans",
             "label": "PT Sans",
             "group": "Sans-serif | Google Web Fonts"
@@ -372,6 +377,11 @@
           {
             "value": "Google_Open+Sans_700_sans",
             "label": "Open Sans Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Oswald_400,700_sans",
+            "label": "Oswald",
             "group": "Sans-serif | Google Web Fonts"
           },
           {
@@ -563,6 +573,11 @@
           {
             "value": "Google_Open+Sans_600_sans",
             "label": "Open Sans Semi-Bold",
+            "group": "Sans-serif | Google Web Fonts"
+          },
+          {
+            "value": "Google_Oswald_400,700_sans",
+            "label": "Oswald",
             "group": "Sans-serif | Google Web Fonts"
           },
           {

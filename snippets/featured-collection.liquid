@@ -53,6 +53,26 @@
       </noscript>
       {% endunless %}
     </div>
-    <span class="featured-box--title">{% if collection_title != blank %}{{ collection_title }}{% else %}{{ 'homepage.featured_collection_rows.heading' | t }}{% endif %}</span>
+
+    <div class="featured-box-content">
+      <span class="featured-box--title">{% if collection_title != blank %}{{ collection_title }}{% else %}{{ 'homepage.featured_collection_rows.heading' | t }}{% endif %}</span>
+
+      <div class="category-block-text">
+        <em>{{ block.settings.block_header }}</em>
+        <br>
+        {{ block.settings.description }}
+      </div>
+
+      <div class="category-block-btn">
+        {{ block.settings.btn_text }}
+        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+      </div>
+
+      <div class="category-block-overlay">
+        <div class="category-block-overlay-content">
+          <i class="fa fa-arrow-circle-right de-fa-100px" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
   </a>
 </div>

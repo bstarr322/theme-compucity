@@ -1,54 +1,31 @@
-<a name="pagecontent" id="pagecontent"></a>
+<div class="grid">
 
-<div class="sixteen columns clearfix collection_nav">
-  <h1>{{ 'customer.register.title' | t }}</h1>
-  <div class="feature_divider"></div>
-</div>
+  <div class="grid-item large--one-third push--large--one-third text-center">
 
-<div class="section clearfix">
-  <div class="six columns offset-by-five">
-    <br class="clear" />
-    <div id="customer">
-      <!-- Create Customer -->
-      <div id="create-customer">
+    <h1>{{ 'customer.register.title' | t }}</h1>
 
-        {% form 'create_customer' %}
-          {{ form.errors | default_errors }}
+    {% form 'create_customer' %}
 
-          <div id="first_name" class="clearfix large_form">
-            <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}</label>
-            <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
-          </div>
+      {% include 'form-errors-custom' %}
 
-          <div id="last_name" class="clearfix large_form">
-            <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}</label>
-            <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
-          </div>
+      <label for="first_name" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
+      <input type="text" value="" name="customer[first_name]" id="first_name" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.errors contains "first_name" %} class="error"{% endif %} autofocus>
 
-          <div id="email" class="clearfix large_form">
-            <label for="email" class="login">{{ 'customer.register.email' | t }}</label>
-            <input type="email" value="" name="customer[email]" id="email" class="large" size="30" />
-          </div>
+      <label for="last_name" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
+      <input type="text" value="" name="customer[last_name]" id="last_name" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.errors contains "last_name" %} class="error"{% endif %}>
 
-          <div id="password" class="clearfix large_form">
-            <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
-            <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
-          </div>
+      <label for="email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
+      <input type="email" value="" name="customer[email]" id="email" placeholder="{{ 'customer.register.email' | t }}" {% if form.errors contains "email" %} class="error"{% endif %} autocorrect="off" autocapitalize="off">
 
-          <div class="acceptsMarketing">
-            <input type="checkbox" id="customer[accepts_marketing]" name="customer[accepts_marketing]">
-            <label for="customer[accepts_marketing]">{{ 'customer.register.accepts_marketing' | t }}</label>
-          </div>
+      <label for="password" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+      <input type="password" value="" name="customer[password]" id="create_password" placeholder="{{ 'customer.register.password' | t }}" {% if form.errors contains "password" %} class="error"{% endif %}>
+      <p>
+        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
+      </p>
+      {{ 'customer.register.or' | t }} <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
 
-          <div class="action_bottom">
-            <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
-            <p class="right" style="padding-top: 8px;">
-              {{ 'customer.register.returning_customer_label' | t }} {{ 'customer.register.sign_in_html' | t | customer_login_link }}
-            </p>
-          </div>
+    {% endform %}
 
-        {% endform %}
-      </div><!-- /#create-customer -->
-    </div>
   </div>
+
 </div>

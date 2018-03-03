@@ -1,12 +1,15 @@
-<a name="pagecontent" id="pagecontent"></a>
+{% include 'breadcrumb' %}
 
-<div class="sixteen columns page clearfix">
-  <h1>
-    {{ page.title }}
-  </h1>
-  <div class="feature_divider"></div>
+<div class="grid">
 
-  <div>
-    {% include 'page-multi-column', content: page.content %}
+  <div class="grid-item large--two-thirds push--large--one-sixth">
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="rte">
+      {{ page.content }}
+    </div>
+
   </div>
+
 </div>

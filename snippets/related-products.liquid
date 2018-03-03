@@ -1,50 +1,30 @@
-{% if collection and collection.all_products_count > 1 %}
-  {% assign col = collection.handle %}
-{% else %}
-  {% assign col = product.collections.last.handle %}
+{% assign number_of_products = 5 %}
+{% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
+
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+  {% assign found_a_collection = false %}
+  {% for c in product.collections %}
+    {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+    {% endif %}
+  {% endfor %}
 {% endif %}
 
-{% for tag in product.tags %}
-  {% if tag contains 'meta-related-collection-' %}
-    {% assign related_collection_handle = tag | remove: 'meta-related-collection-' %}
-    {% if collections[related_collection_handle].all_products_count > 0 %}
-      {% assign col = related_collection_handle %}
-      {% assign collection = collections[col] %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-
-{% if col %}
-  {% if collections[col].all_products_count != 1 or collections[col].products.first.id != product.id %}
-    {% assign skip_product = product %}
-    {% assign products = collections[col].products %}
-    {% unless sidebar %} <div class="container"> {% endunless %}
-      <div class="related-products__title {% unless section.settings.related_products_style == 'slider' %}{% if sidebar %}twelve columns{% else %}sixteen columns{% endif %}{% endunless %}">
-        <h4 class="title center">{{ 'products.product.related_items' | t }}</h4>
-        <div class="feature_divider"></div>
-      </div>
-      <div class="clear"></div>
-    {% unless sidebar %} </div> {% endunless %}
-
-    {% if section.settings.related_products_style == 'slider' %}
-      {% assign limit = section.settings.related_products_limit %}
-      <div class="related-products related-products--slider js-related-products-slider">
-        {% if col and collections[col].all_products_count > 0 %}
-          {% include 'product-slider', related_products: true %}
-        {% endif %}
-      </div>
-
-    {% else %}
-      {% assign limit = section.settings.related_products_limit | plus: 1 %}
-      {% assign products_per_row = section.settings.products_per %}
-      {% if col and collections[col].all_products_count > 0 %}
-        {% unless sidebar %}<div class="container related-products--grid">{% endunless %}
-          <div class="{% if sidebar %}twelve{% else %}sixteen{% endif %} columns">
-            {% include 'product-loop', related_products: true %}
-          </div>
-        {% unless sidebar %}</div>{% endunless %}
+{% if collection and collection.products_count > 1 %}
+  <hr>
+  <h2 class="h1">{{ 'products.general.related_products' | t }}</h2>
+  <div class="grid-uniform">
+    {% assign current_product = product %}
+    {% assign current_product_found = false %}
+    {% for product in collection.products limit: number_of_products_to_fetch %}
+      {% if product.handle == current_product.handle %}
+        {% assign current_product_found = true %}
+      {% else %}
+        {% unless current_product_found == false and forloop.last %}
+          {% include 'product-grid-item' %}
+        {% endunless %}
       {% endif %}
-    {% endif %}
-
-  {% endif %}
+    {% endfor %}
+  </div>
 {% endif %}

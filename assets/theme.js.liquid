@@ -2722,6 +2722,16 @@ function gm_authFailure() {
 }
 
 
+$.fn.extend({
+  animateCss: function (animationName) {
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    $(this).addClass('animated ' + animationName).one(animationEnd, function() {
+      $(this).removeClass('animated ' + animationName);
+    });
+  }
+});
+
+
 $(document).ready(function() {
   var sections = new theme.Sections();
   sections.register('header-section', theme.HeaderSection);
@@ -2731,4 +2741,31 @@ $(document).ready(function() {
   sections.register('list-collections-template', theme.ListCollections);
   sections.register('collection-row-section', theme.CollectionRows);
   sections.register('product-template', theme.Product);
+
+  // Add smooth scrolling to all links
+  $("a.backtotop").on('click', function(event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+      scrollTop: 0
+    }, 700);
+  });
+
+  $('#plugdetroit').on('mouseenter', function() {
+    $(this).animateCss('jello')
+  });
+
+  $('.hitarea').on('click', function(e) {
+    e.preventDefault();
+
+    let $this = $(this);
+    let $tab = $this.parent('.accordion-tabs');
+
+    if ($tab.find('> .toggle_content').is(':hidden')) {
+      $tab.find('> .toggle_content').slideDown();
+    } else {
+      $tab.find('> .toggle_content').slideUp();
+    }
+    $tab.toggleClass('opened');
+  });
 });

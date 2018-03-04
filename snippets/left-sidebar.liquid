@@ -10,9 +10,9 @@
         {% assign menu = linklists.categories %}
 
         {% for link in menu.links %}
-          <li class="{% if link.links != blank %}accordion-tabs{% endif %}">
+          <li class="{% if link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains link.url %}active{% endif %}">
             {% if link.links != blank %}
-            <div class="hitarea expandable-hitarea"></div>
+            <div class="hitarea"></div>
             {% endif %}
 
             <a href="{{ link.url }}" class="{% if link.active %}selected{% endif %}">{{ link.title }}</a>
@@ -20,9 +20,9 @@
             {% if link.links != blank %}
               <ul class="toggle_content">
               {% for sub_link in link.links %}
-                <li class="{% if sub_link.links != blank %}accordion-tabs{% endif %}">
+                <li class="{% if sub_link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains sub_link.url %}active{% endif %}">
                   {% if sub_link.links != blank %}
-                  <div class="hitarea expandable-hitarea"></div>
+                  <div class="hitarea"></div>
                   {% endif %}
 
                   <a href="{{ link.url }}" class="{% if sub_link.active %}selected{% endif %}">{{ sub_link.title }}</a>
@@ -30,9 +30,9 @@
                   {% if sub_link.links != blank %}
                     <ul class="toggle_content">
                     {% for sub_sub_link in sub_link.links %}
-                      <li class="{% if sub_sub_link.links != blank %}accordion-tabs{% endif %}">
+                      <li class="{% if sub_sub_link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains sub_sub_link.url %}active{% endif %}">
                         {% if sub_sub_link.links != blank %}
-                        <div class="hitarea expandable-hitarea"></div>
+                        <div class="hitarea"></div>
                         {% endif %}
                         
                         <a href="{{ link.url }}" class="{% if sub_sub_link.active %}selected{% endif %}">{{ sub_sub_link.title }}</a>

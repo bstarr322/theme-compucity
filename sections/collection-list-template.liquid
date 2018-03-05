@@ -3,9 +3,12 @@
 {% include 'breadcrumb' %}
 
 {% assign has_sidebar = false %}
+
+{% comment %}
 {% if collection.all_tags.size > 0 %}
   {% assign has_sidebar = true %}
 {% endif %}
+{% endcomment %}
 
 <div class="grid grid-border text-center">
 

@@ -66,14 +66,17 @@
 
   {% section 'header' %}
 
-  <div class="wrapper">
-    {% section 'slideshow' %}
+  <div class="main-content-wrapper wrapper">
+
+    {% if template contains 'index' %}
+      {% section 'slideshow' %}
+    {% endif %}
 
     <div class="grid">
-      <div class="grid-item one-fifth">
+      <div class="grid-item small--one-whole one-fifth">
         {% include 'left-sidebar' %}
       </div>
-      <div class="grid-item four-fifths">
+      <div class="grid-item small--one-whole four-fifths">
         <main class="main-content" role="main">
           {{ content_for_layout }}
           <a href="javascript:void(0);" class="backtotop" alt="Scroll to Top" title="Scroll to Top">&nbsp;</a>

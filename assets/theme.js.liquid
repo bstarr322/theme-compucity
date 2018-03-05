@@ -2026,7 +2026,9 @@ theme.SlideshowSection = (function() {
   function SlideshowSection(container) {
     var $container = (this.$container = $(container));
     var id = $container.attr('data-section-id');
-    var slideshow = (this.slideshow = '#heroSlider--' + id);
+    // var slideshow = (this.slideshow = '#heroSlider--' + id);
+
+    var slideshow = '#' + $container.attr('id');
     var numberOfSlides = $(slideshow).find('li').length;
 
     if (numberOfSlides <= 0) return;
@@ -2768,4 +2770,6 @@ $(document).ready(function() {
     }
     $tab.toggleClass('opened');
   });
+
+  theme.Slideshow($('#sideBarCarousel'));
 });

@@ -1,0 +1,46 @@
+<div class="flexslider" id="sideBarCarousel" data-slider-home-auto="{{ settings.sidebar_pcarousel_slider_home_auto }}" data-slider-home-rate="{{ settings.sidebar_pcarousel_slider_home_rate }}">
+{% assign featured_row = settings.sidebar_pcarousel_row %}
+
+{%- assign product_limit = settings.sidebar_pcarousel_limit -%}
+{% assign header_title = collections[featured_row].title %}
+{%- assign more_link = collections[featured_row].url -%}
+
+<div class="section-header">
+  <p class="h2 section-header--left">{{ settings.sidebar_pcarousel_title | escape }}</p>
+</div>
+
+
+{% if collections[featured_row].all_products_count != 0 and settings.sidebar_pcarousel_row != blank %}
+
+  <ul class="slides">
+    {% for product in collections[featured_row].products limit: product_limit %}
+      {% assign current_collection = collections[featured_row] %}
+      <li id="slide--{{ forloop.index0 }}" data-flexslider-index="{{ forloop.index0 }}">
+        {% include 'grid-item-content' %}
+      </li>
+    {% endfor %}
+  </ul>
+
+{% else %}
+  <div class="section-header">
+    <p class="h1 section-header--left">{{ settings.sidebar_pcarousel_title | escape }}</p>
+    <div class="section-header--right">
+      <a href="{{ collections[featured_row].url }}">{{ 'homepage.featured_collection_rows.more' | t }} &rsaquo;</a>
+    </div>
+  </div>
+
+  <div class="grid text-center row-negative-bottom">
+    <div class="grid-item">
+      <div class="grid-uniform">
+        {% for i in (1..product_limit) %}
+          <div class="grid-item {{ grid_item_width }} text-center">
+            {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
+              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            <p><a href="/admin/products">{{ 'homepage.onboarding.product_title' | t }}</a> $19.99</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+</div>

@@ -758,6 +758,55 @@
     ]
   },
   {
+    "name": "Sidebar Featured Products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sidebar_pcarousel_auto",
+        "label": "Auto-rotate slides"
+      },
+      {
+        "type": "select",
+        "id": "sidebar_pcarousel_rate",
+        "label": "Transition time",
+        "options": [
+          {
+            "value": "5000",
+            "label": "5 seconds"
+          },
+          {
+            "value": "7000",
+            "label": "7 seconds"
+          },
+          {
+            "value": "10000",
+            "label": "10 seconds"
+          },
+          {
+            "value": "15000",
+            "label": "15 seconds"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "sidebar_pcarousel_title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "type": "collection",
+        "id": "sidebar_pcarousel_row",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_pcarousel_limit",
+        "label": "Product Limit"
+      }
+    ]
+  },
+  {
     "name": "Social media",
     "settings": [
       {

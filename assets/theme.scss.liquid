@@ -1666,10 +1666,17 @@ html, body {
   }
 }
 
+.main-content-wrapper  {
+  margin-top: $gutter/2;
+}
 .main-content {
   display: block;
   padding-top: $gutter;
   padding-bottom: $gutter*2;
+
+  .template-index & {
+    padding-top: initial;
+  }
 }
 
 .grid-border {
@@ -3783,6 +3790,7 @@ a.product-grid-item,
 
   span {
     line-height: 22px;
+    margin: initial;
   }
 
   small {
@@ -4432,7 +4440,7 @@ a.remove {
     - Contributing author: Tyler Smith (@mbmufffin)
 ==============================================================================*/
 .flexslider {
-  margin: 0 0 $gutter*1.5;
+  margin: 0 0 $gutter/2;
   padding: 0;
 }
 .flexslider li { margin: 0; max-width: 100%; }
@@ -4539,8 +4547,9 @@ html[xmlns] .slides { display: block; }
 
 /*================ Control Nav ================*/
 .flex-control-nav {
+  display: none !important; //Hide for now
   position: absolute;
-  bottom: -$gutter;
+  bottom: 7px;
   width: 100%;
   text-align: center;
   margin: 0;
@@ -4591,11 +4600,9 @@ html[xmlns] .slides { display: block; }
   }
   .flex-direction-nav a.flex-prev {
     left: 0;
-    background-position: center right;
   }
   .flex-direction-nav a.flex-next {
     right: 0;
-    background-position: center left;
   }
 }
 
@@ -6038,7 +6045,7 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
 }
 
 .left-sidebar {
-  margin-bottom: $gutter * 2;
+  margin-bottom: $gutter /2;
 
   ul {
     margin: initial;
@@ -6250,4 +6257,8 @@ a.backtotop {
         display: none;
         opacity: 0;
     }
+}
+
+#sideBarCarousel {
+  margin-top: $gutter/2;
 }

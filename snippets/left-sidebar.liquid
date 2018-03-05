@@ -10,7 +10,7 @@
         {% assign menu = linklists.categories %}
 
         {% for link in menu.links %}
-          <li class="{% if link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains link.url %}active{% endif %}">
+          <li class="{% if link.links != blank %}accordion-tabs{% endif %} {% if link.active %}active{% endif %}">
             {% if link.links != blank %}
             <div class="hitarea"></div>
             {% endif %}
@@ -20,7 +20,7 @@
             {% if link.links != blank %}
               <ul class="toggle_content">
               {% for sub_link in link.links %}
-                <li class="{% if sub_link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains sub_link.url %}active{% endif %}">
+                <li class="{% if sub_link.links != blank %}accordion-tabs{% endif %} {% if sub_link.active %}active{% endif %}">
                   {% if sub_link.links != blank %}
                   <div class="hitarea"></div>
                   {% endif %}
@@ -30,7 +30,7 @@
                   {% if sub_link.links != blank %}
                     <ul class="toggle_content">
                     {% for sub_sub_link in sub_link.links %}
-                      <li class="{% if sub_sub_link.links != blank %}accordion-tabs{% endif %} {% if canonical_url contains sub_sub_link.url %}active{% endif %}">
+                      <li class="{% if sub_sub_link.links != blank %}accordion-tabs{% endif %} {% if sub_sub_link.active %}active{% endif %}">
                         {% if sub_sub_link.links != blank %}
                         <div class="hitarea"></div>
                         {% endif %}
@@ -51,5 +51,8 @@
       </ul>
     </div>
   </div>
+
+  {% include 'collection-rows-sidebar' %}
+  
 </div>
 <!-- /Left Category Sidebar -->

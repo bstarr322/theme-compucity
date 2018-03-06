@@ -311,6 +311,7 @@
       "will_not_ship_until": "Will not ship until {{ date }}",
       "quantity": "Quantity",
       "add_to_cart": "Add to Cart",
+      "choose_options": "Choose Options",
       "unavailable": "Unavailable",
       "will_be_in_stock_after": "Will be in stock after {{ date }}",
       "only_left": {

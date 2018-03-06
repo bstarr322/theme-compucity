@@ -1,42 +1,47 @@
 {
   "current": {
-    "color_primary": "#9c756f",
+    "color_primary": "#095898",
     "color_secondary": "#f3f3f3",
-    "color_accent": "#545454",
-    "color_body_bg": "#f3f3f3",
+    "color_accent": "#095898",
+    "color_body_bg": "#ffffff",
     "color_borders": "#dedede",
     "product_reviews_star_color": "#e5c649",
     "color_header_background": "#ffffff",
-    "color_header_text": "#545454",
-    "color_header_cart_search": "#f3f3f3",
-    "color_nav_bg": "#9c756f",
+    "color_header_text": "#095898",
+    "color_header_cart_search": "#ffffff",
+    "color_nav_bg": "#095898",
     "color_nav_text": "#ffffff",
     "color_body_text": "#858585",
-    "color_heading_text": "#2f2f2f",
-    "color_footer_bg": "#ffffff",
-    "color_footer_text": "#545454",
-    "color_footer_social_link": "#545454",
-    "type_base_family": "Google_Roboto_400,700_sans",
+    "color_heading_text": "#095898",
+    "color_footer_bg": "#545c66",
+    "color_footer_text": "#ffffff",
+    "color_footer_social_link": "#ffffff",
+    "type_base_family": "'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif",
     "type_base_size": "14px",
-    "type_header_family": "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
+    "type_header_family": "Google_Oswald_400,700_sans",
     "type_header_transform": false,
-    "type_accent_family": "Google_Lato_700_sans",
+    "type_accent_family": "Google_Oswald_400,700_sans",
     "type_navigation_size": "14px",
     "type_navigation_transform": true,
     "type_button_size": "14px",
     "type_button_transform": true,
     "favicon": "",
-    "cart_notes_enable": false,
+    "cart_notes_enable": true,
     "ajax_cart_method": "modal",
+    "sidebar_pcarousel_auto": true,
+    "sidebar_pcarousel_rate": "5000",
+    "sidebar_pcarousel_title": "Popular Products",
+    "sidebar_pcarousel_row": "1-500-to-2-000",
+    "sidebar_pcarousel_limit": "5",
     "share_image": "",
-    "social_twitter_link": "",
-    "social_facebook_link": "",
-    "social_pinterest_link": "",
+    "social_twitter_link": "https:\/\/twitter.com\/shopify",
+    "social_facebook_link": "https:\/\/facebook.com\/shopify",
+    "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
     "social_google_plus_link": "",
-    "social_instagram_link": "",
+    "social_instagram_link": "https:\/\/instagram.com\/shopify",
     "social_snapchat_link": "",
     "social_tumblr_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
     "social_vimeo_link": "",
     "social_fancy_link": "",
     "social_sharing_style": "is-normal",
@@ -58,6 +63,8 @@
     "checkout_accent_color": "#197bbd",
     "checkout_button_color": "#197bbd",
     "checkout_error_color": "#e32c2b",
+    "sidebar_pcarousel_product_show_saved_amount": "true",
+    "sidebar_pcarousel_product_show_compare_at_price": "false",
     "collection_sidebar_filters": "tags",
     "sections": {
       "header": {
@@ -65,7 +72,7 @@
         "settings": {
           "menu": "main-menu",
           "logo": "shopify:\/\/shop_images\/logo_a24609f8-7337-44aa-aae8-14d5e39dcb1d.png",
-          "logo_max_width": "200",
+          "logo_max_width": "120",
           "show_announcement": false,
           "announcement_text": "Announce something here",
           "announcement_link": ""
@@ -78,8 +85,8 @@
             "type": "menu",
             "settings": {
               "title": "Quick links",
-              "menu": "",
-              "width": "16%"
+              "menu": "main-menu",
+              "width": "25%"
             }
           },
           "text": {
@@ -87,7 +94,7 @@
             "settings": {
               "title": "Get in touch",
               "richtext": "<p>Use this text to share information about your brand with your customers.<\/p>",
-              "width": "50%"
+              "width": "33%"
             }
           },
           "newsletter": {
@@ -104,8 +111,8 @@
           "newsletter"
         ],
         "settings": {
-          "social_enabled": false,
-          "legal_menu": ""
+          "social_enabled": true,
+          "legal_menu": "barcode-printers"
         }
       },
       "slideshow": {
@@ -141,80 +148,84 @@
           "collection-list-0": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "1-250-to-1-500",
+              "header": "Refurbished Dell Laptops",
+              "description": "Discount Electronics has the lowest laptop prices. All laptops include our 1-Year Warranty.",
+              "btn_text": "Laptops"
             }
           },
           "collection-list-1": {
             "type": "collection",
             "settings": {
-              "collection": ""
+              "collection": "100-to-200",
+              "header": "Refurbished Dell Laptops",
+              "description": "Discount Electronics has the lowest laptop prices. All laptops include our 1-Year Warranty.",
+              "btn_text": "Laptops"
+            }
+          },
+          "1520110473696": {
+            "type": "collection",
+            "settings": {
+              "collection": "200-to-500",
+              "header": "Refurbished Dell Laptops",
+              "description": "Discount Electronics has the lowest laptop prices. All laptops include our 1-Year Warranty.",
+              "btn_text": "Laptops"
+            }
+          },
+          "1520110478209": {
+            "type": "collection",
+            "settings": {
+              "collection": "75-to-100",
+              "header": "Refurbished Dell Laptops",
+              "description": "Discount Electronics has the lowest laptop prices. All laptops include our 1-Year Warranty.",
+              "btn_text": "Laptops"
             }
           }
         },
         "block_order": [
           "collection-list-0",
-          "collection-list-1"
+          "collection-list-1",
+          "1520110473696",
+          "1520110478209"
         ],
-        "settings": {}
+        "settings": {
+          "header": "USED AND REFURBISHED DELL LAPTOPS AND COMPUTERS"
+        }
       },
       "collection-row-1": {
         "type": "collection-rows",
         "settings": {
           "title": "Featured collection",
-          "home_featured_row": "",
+          "home_featured_row": "1-250-to-1-500",
           "grid": 4,
-          "rows": 1,
+          "rows": 5,
+          "product_show_saved_amount": true,
+          "product_show_compare_at_price": true
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "grid": "4",
+          "rows": "6",
+          "collection_sidebar_filters": "tags",
+          "product_show_compare_at_price": false,
+          "product_show_saved_amount": true,
+          "product_reviews_enable": false,
+          "enable_sidebar": false
+        }
+      },
+      "1520264571729": {
+        "type": "collection-rows-sidebar",
+        "disabled": true,
+        "settings": {
+          "slider_home_auto": true,
+          "slider_home_rate": "5000",
+          "title": "POPULAR PRODUCTS",
+          "home_featured_row": "100-to-200",
+          "product_limit": "6",
           "product_show_saved_amount": true,
           "product_show_compare_at_price": false
-        }
-      },
-      "collection-row-2": {
-        "type": "collection-rows",
-        "settings": {
-          "title": "Featured collection",
-          "home_featured_row": "",
-          "grid": 4,
-          "rows": 1,
-          "product_show_saved_amount": true,
-          "product_show_compare_at_price": false
-        }
-      },
-      "collection-row-3": {
-        "type": "collection-rows",
-        "settings": {
-          "title": "Featured collection",
-          "home_featured_row": "",
-          "grid": 4,
-          "rows": 1,
-          "product_show_saved_amount": true,
-          "product_show_compare_at_price": false
-        }
-      },
-      "featured-content": {
-        "type": "featured-content",
-        "settings": {
-          "section_title": "Talk about your brand",
-          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-          "text_size": "medium"
-        }
-      },
-      "slideshow-2": {
-        "type": "slideshow",
-        "blocks": {
-          "slideshow-2-0": {
-            "type": "image",
-            "settings": {
-              "slide": "",
-              "link": ""
-            }
-          }
-        },
-        "block_order": [
-          "slideshow-2-0"
-        ],
-        "settings": {
-          "slider_home_auto": false,
-          "slider_home_rate": "5000"
         }
       }
     },
@@ -222,10 +233,7 @@
       "slideshow",
       "collection-list",
       "collection-row-1",
-      "collection-row-2",
-      "collection-row-3",
-      "slideshow-2",
-      "featured-content"
+      "1520264571729"
     ]
   },
   "presets": {

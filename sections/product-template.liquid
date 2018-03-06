@@ -134,9 +134,15 @@
           <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
         {% endif %}
 
-        <button type="submit" name="add" id="addToCart-{{ section.id }}" class="{{ btn_class }}">
-          <span class="icon icon-cart"></span>
-          <span id="addToCartText-{{ section.id }}">{{ 'products.product.add_to_cart' | t }}</span>
+        <button type="submit" name="add" id="addToCart-{{ section.id }}" class="{{ btn_class }} {% if product.options.size > 1 %}btn-multi-options{% else %}btn-add-to-cart{% endif %}">
+          <span class="icon icon-cart hide"></span>
+          <span id="addToCartText-{{ section.id }}">
+            {% if product.options.size > 1 %}
+              {{ 'products.product.choose_options' | t }}
+            {% else %}
+              {{ 'products.product.add_to_cart' | t }}
+            {% endif %}
+          </span>
         </button>
 
         {% if section.settings.product_quantity_message%}

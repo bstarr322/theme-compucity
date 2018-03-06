@@ -2193,6 +2193,20 @@ html input[disabled] {
     color: $disabledBorder;
     background-color: $disabledGrey;
   }
+
+  &.btn-add-to-cart {
+    margin-top: 15px;
+    background: $colorAccent url("{{'cart.png' | asset_url }}") 8px 50% no-repeat;
+    background-color: #48B04B;
+    border-color: #48B04B;
+    padding-left: 30px;
+  }
+
+  &.btn-multi-options {
+    margin-top: 15px;
+    background: $colorAccent url("{{'opt.png' | asset_url }}") 8px 50% no-repeat;
+    padding-left: 30px;
+  }
 }
 
 .btn-secondary,
@@ -3629,6 +3643,10 @@ $shareBorderColor: #ececec;
     &:hover {
       color: darken($colorFooterText, 20%);
     }
+  }
+
+  .contact-form {
+    margin: initial;
   }
 }
 

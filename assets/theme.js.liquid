@@ -1819,15 +1819,25 @@ timber.resizeElements = function ($container, id) {
   var $id = $container.attr('data-section-id', id);
   var $grid = $container.find('.grid-uniform');
   var $gridImages = $id.find('.product-grid-image');
-
+  var $gridTitle = $container.find('.grid-details .title');
 
   $gridImages.css('height', 'auto').equalHeights(this);
-
+  $gridTitle.css('height', 'auto').equalHeights(this);
+  
   var $featuredBoxImages = $container.find('.featured-box--inner');
   var $featuredBoxTitles = $container.find('.featured-box--title');
 
   $featuredBoxImages.css('height', 'auto').equalHeights(this);
   $featuredBoxTitles.css('height', 'auto').equalHeights(this);
+
+};
+
+timber.resizeElementsGrid = function ($container) {
+  var $gridImages = $container.find('.product-grid-image');
+  var $gridTitle = $container.find('.grid-details .title');
+
+  $gridImages.css('height', 'auto').equalHeights(this);
+  $gridTitle.css('height', 'auto').equalHeights(this);
 
 };
 
@@ -2772,4 +2782,9 @@ $(document).ready(function() {
   });
 
   theme.Slideshow($('#sideBarCarousel'));
+
+  if ($('.collection-template-section').length > 0 ) {
+    timber.resizeElementsGrid($('.collection-template-section'));
+  }
+  
 });

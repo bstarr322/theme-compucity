@@ -841,19 +841,25 @@ $viewportIncrement: 1px;
 $small: 480px;
 $medium: 768px;
 $large: 769px;
+$xlarge: 1024px;
 
 $postSmall: $small + $viewportIncrement;
+$postXLarge: $xlarge + $viewportIncrement;
+
 $preMedium: $medium - $viewportIncrement;
 $preLarge: $large - $viewportIncrement;
+$preXLarge: $xlarge - $viewportIncrement;
 
 /*================ The following are dependencies of csswizardry grid ================*/
 $breakpoints: (
   'small' '(max-width: #{$small})',
   'medium' '(min-width: #{$postSmall}) and (max-width: #{$medium})',
   'medium-down' '(max-width: #{$medium})',
-  'large' '(min-width: #{$large})'
+  'large' '(min-width: #{$large})',
+  'xlarge-up' '(min-width: #{$large})',
+  'xlarge-down' '(max-width: #{$preXLarge})'
 );
-$breakpoint-has-widths: ('small', 'medium', 'medium-down', 'large');
+$breakpoint-has-widths: ('small', 'medium', 'medium-down', 'large', 'xlarge-up', 'xlarge-down');
 $breakpoint-has-push:  ('medium', 'medium-down', 'large');
 $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 
@@ -3056,6 +3062,11 @@ $shareBorderColor: #ececec;
   }
 }
 
+.header-section {
+  a {
+    color: $headerText;
+  }
+}
 .header-logo {
   margin: 0;
 
@@ -3765,6 +3776,10 @@ a.product-grid-item,
   display: block;
   color: $colorTextBody;
   margin-bottom: $gutter*2;
+
+  #shopify-section-collection-list-template & {
+    padding: 20px;
+  }
 
   border: 1px solid #e5e5e5;
   border-bottom: 2px solid #ddd;
@@ -5946,23 +5961,16 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
         background: url('{{"header_icons.png" | asset_url }}') 0 0 no-repeat;
       }
 
-      a.accountlink {
-        &:before {
-          width: 20px;
-          height: 18px;
-          display: block;
-          float: left;
-          background-position: -623px -12px;
-        }
+      a, span {
+        display: inline-block;
+        vertical-align: middle;
       }
 
-      a.login {
-        &:before {
-          width: 20px;
-          height: 18px;
-          display: block;
-          float: left;
-          background-position: -740px -10px;
+      a {
+        svg, path {
+          width: 13px;
+          margin-bottom: -3px;
+          fill: $headerText;
         }
       }
     }
@@ -6006,7 +6014,7 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
   span {
     font-size: 16px;
     font-weight: bold;
-    color: $colorAccent;
+    color: $headerText;
     display: block;
     clear: both;
   }

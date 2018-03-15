@@ -3,17 +3,18 @@
     <div class="grid--full">
       <div class="grid-item">
         <div class="TopHeaderLeft">
-          <span class="paywithamazon" title="Pay with Amazon">Pay with Amazon</span>
-          <span class="BBBLogo" title="Accredited Business Rating: A+">BBB Logo</span>
-          <span class="GoogleTrustedStoreLogo" title="Google Trusted Store">Google Trusted Store</span>
+          <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
+          <span class="hide paywithamazon" title="Pay with Amazon">Pay with Amazon</span>
+          <span class="hide BBBLogo" title="Accredited Business Rating: A+">BBB Logo</span>
+          <span class="hide GoogleTrustedStoreLogo" title="Google Trusted Store">Google Trusted Store</span>
         </div>
 
         {% if shop.customer_accounts_enabled %}
         <ul>
-          <li class="First"><a href="/account" class="accountlink">My Account</a>&nbsp;</li>
+          <li class="First"><a href="/account" class="accountlink">{% include 'icon-user' %} My Account</a>&nbsp;</li>
           <li>
             <div class="accLink">
-              <a href="/account/login" class="login">Sign in</a> or <a href="/account/register">create an account</a>
+              <a href="/account/login" class="login">{% include 'icon-lock' %} Sign in</a> <span>or</span> <a href="/account/register">create an account</a>
             </div>
           </li>
         </ul>
@@ -74,7 +75,7 @@
 
         <a href="" class="phone-link">
           <i>Call us</i>
-          <span>(512) 459-0026</span>
+          <span>866-217-8587</span>
         </a>
 
         {% include 'search-bar' %}

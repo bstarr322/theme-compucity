@@ -762,6 +762,11 @@
     "settings": [
       {
         "type": "checkbox",
+        "id": "enable_sidebar_pcarousel",
+        "label": "Enable Sidebar Featured Products"
+      },
+      {
+        "type": "checkbox",
         "id": "sidebar_pcarousel_auto",
         "label": "Auto-rotate slides"
       },

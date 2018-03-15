@@ -75,7 +75,7 @@
       </div>
       {% endif %}
       {% if section.settings.social_enabled %}
-      <div class="grid-item{% if section.settings.legal_menu != blank %} large--three-fifths text-right{% else %} one-whole text-center{% endif %}">
+      <div class="grid-item{% if section.settings.legal_menu != blank %} large--three-fifths text-right{% else %} one-whole text-right{% endif %}">
           <ul class="inline-list social-icons">
              {% if settings.social_twitter_link != blank %}
                <li>
@@ -191,7 +191,9 @@
 
     </div>
 
+    {% comment %}
     {% include 'plug-logo' %}
+    {% endcomment %}
 
   </div>
 

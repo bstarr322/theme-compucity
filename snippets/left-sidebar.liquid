@@ -25,7 +25,7 @@
                   <div class="hitarea"></div>
                   {% endif %}
 
-                  <a href="{{ link.url }}" class="{% if sub_link.active %}selected{% endif %}">{{ sub_link.title }}</a>
+                  <a href="{{ sub_link.url }}" class="{% if sub_link.active %}selected{% endif %}">{{ sub_link.title }}</a>
 
                   {% if sub_link.links != blank %}
                     <ul class="toggle_content">
@@ -35,7 +35,7 @@
                         <div class="hitarea"></div>
                         {% endif %}
                         
-                        <a href="{{ link.url }}" class="{% if sub_sub_link.active %}selected{% endif %}">{{ sub_sub_link.title }}</a>
+                        <a href="{{ sub_sub_link.url }}" class="{% if sub_sub_link.active %}selected{% endif %}">{{ sub_sub_link.title }}</a>
                       </li>
                     {% endfor %}
                     </ul>
@@ -52,7 +52,9 @@
     </div>
   </div>
 
-  {% include 'collection-rows-sidebar' %}
+  {% if settings.enable_sidebar_pcarousel %}
+    {% include 'collection-rows-sidebar' %}
+  {% endif %}
   
 </div>
 <!-- /Left Category Sidebar -->
